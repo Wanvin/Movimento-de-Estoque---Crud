@@ -27,7 +27,9 @@ namespace ProjetoHistorico2
 
         private void btn_pesquisar_Click(object sender, EventArgs e)
         {
-
+            // onde vou chamar a função busca (select)
+            //tem que retornar o histórico do equipamento e não o equipamento em sim.
+            // where = texto do txb_cod_digitado
 
         }
 
