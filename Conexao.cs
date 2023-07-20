@@ -1,17 +1,20 @@
-﻿using System.Data.SqlClient;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System.Data.SqlClient;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProjetoHistorico2
 {
-    public class Crudbd
+    public class Conexao
     {
        
         SqlConnection con = new SqlConnection();
 
         // Construtor
 
-        public Crudbd()
+        public Conexao()
         {
-            con.ConnectionString = "@Data Source=DESKTOP-2ABJD5F\\SQL2022;Initial Catalog=Crud;Persist Security Info=True;User ID=sa;Password=senha";
+            con.ConnectionString = "Server = DESKTOP - 2ABJD5F; Database = Crud; User Id = sa ; Password = senha;";
+            
         }
 
         //Método de conexão bd

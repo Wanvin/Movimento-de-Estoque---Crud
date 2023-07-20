@@ -1,8 +1,11 @@
+using System.Data;
+using System.Data.SqlClient;
+
 namespace ProjetoHistorico2
 {
-    public partial class Form1 : Form
+    public partial class Programa : Form
     {
-        public Form1()
+        public Programa()
         {
             InitializeComponent();
         }
@@ -25,8 +28,16 @@ namespace ProjetoHistorico2
 
         }
 
-        private void btn_pesquisar_Click(object sender, EventArgs e)
+        public void btn_pesquisar_Click(object sender, EventArgs e)
         {
+            
+
+
+            Historico historico = new Historico();
+
+            historico.Select(int.Parse(txb_cod_digitado.Text));
+
+        
             // onde vou chamar a função busca (select)
             //tem que retornar o histórico do equipamento e não o equipamento em sim.
             // where = texto do txb_cod_digitado
@@ -39,6 +50,14 @@ namespace ProjetoHistorico2
 
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void lbl_funcionario_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
