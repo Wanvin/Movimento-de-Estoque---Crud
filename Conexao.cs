@@ -13,7 +13,7 @@ namespace ProjetoHistorico2
 
         public Conexao()
         {
-            con.ConnectionString = "Server = DESKTOP - 2ABJD5F; Database = Crud; User Id = sa ; Password = senha;";
+            con.ConnectionString = "Server = DESKTOP-2ABJD5F; Database = Crud; User Id = sa ; Password = senha;";
             
         }
 

@@ -1,5 +1,6 @@
 using System.Data;
 using System.Data.SqlClient;
+using TarefaTeste;
 
 namespace ProjetoHistorico2
 {
@@ -46,7 +47,7 @@ namespace ProjetoHistorico2
 
         public void dtg_resultado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+           
 
         }
 
