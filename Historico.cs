@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 namespace ProjetoHistorico2
 {
 
-    
+
     public class Historico
     {
         public string mensagem = "insert";
@@ -18,7 +19,7 @@ namespace ProjetoHistorico2
                 DateOnly data_alteracao, String setor, int status, bool devolver, bool devolvido)
         {
 
-            ide = Guid.NewGuid();
+          
             Conexao conexao = new Conexao();
             SqlCommand cmd = new SqlCommand();
 
@@ -47,15 +48,12 @@ namespace ProjetoHistorico2
                 // Desconectar Bd
                 conexao.desconectar();
                 // Mostrar mensagem de erro ou sucesso
-                this.mensagem = "Produto cadastrado com sucesso!";
                 return true;
 
 
             }
             catch (Exception)
             {
-
-                this.mensagem = "Erro ao tentar se conectar com o Banco de Dados!";
                 return false;
             }
             return false;
@@ -68,10 +66,11 @@ namespace ProjetoHistorico2
 
             Conexao conexao = new Conexao();
             SqlCommand cmd = new SqlCommand();
-            
+            SqlDataAdapter sqa = new SqlDataAdapter(cmd);
+
 
             // Comando Sql (insert, update, delete) -- SqlCommand
-            cmd.CommandText = "Select * from Equipamento e where e.Codigo = @codigo)";
+            cmd.CommandText = "Select h.* from Historico h left join Equipamento e on e.Ide = h.Equipamento_Ide where e.Codigo = @codigo";
             // Parametros
             cmd.Parameters.AddWithValue("@codigo", codigo);
 
@@ -80,19 +79,21 @@ namespace ProjetoHistorico2
             // Conectar Bd -- Conexao(Instanciar a Classe)
             try
             {
+
+               
                 cmd.Connection = conexao.conectar();
                 // Executar comando Sql
-                cmd.ExecuteReader();
+               
                 DataTable Equipamento = new DataTable();
-                Equipamento.Load(cmd.ExecuteReader());
+                
+                sqa.Fill(Equipamento);
+
 
 
 
                 // Desconectar Bd
                 conexao.desconectar();
                 // Mostrar mensagem de erro ou sucesso
-                this.mensagem = "Produto Encontrado!";
-
                 return Equipamento;
 
 
@@ -100,13 +101,20 @@ namespace ProjetoHistorico2
             catch (Exception)
             {
 
-                this.mensagem = "Produto não encontrado!";
-                
             }
             return null;
 
-
         }
-        
+
+
     }
+    
 }
+
+
+
+
+
+
+
+
