@@ -3,11 +3,14 @@ using System.Data.SqlClient;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using TarefaTeste;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProjetoHistorico2
 {
     public partial class Programa : Form
     {
+        public DataGridViewRow[] RowHeaderMouseDoubleClick { get; private set; }
+
         public Programa()
         {
             InitializeComponent();
@@ -141,6 +144,7 @@ namespace ProjetoHistorico2
         public void cmb_setor_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+
         }
 
 
@@ -156,32 +160,34 @@ namespace ProjetoHistorico2
 
         public void txb_status_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
-        private void dtp_movimento_ValueChanged(object sender, EventArgs e)
+        public void dtp_movimento_ValueChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void dtp_alteracao_ValueChanged(object sender, EventArgs e)
+        public void dtp_alteracao_ValueChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void dtg_resultado_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            
-
-           
-        }
-
-        public void EventHandler (Action<object, DataGridViewCellEventArgs> dtg_resultado_CellContentClick_1, object sender, EventArgs eventArgs, DataGridViewCellEventArgs e)
+        public void dtg_resultado_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
-            System.Text.StringBuilder messageBoxCS = new System.Text.StringBuilder();
-            messageBoxCS.AppendFormat("{0} = {1}", "ColumnIndex", e.RowIndex);
+            int indiceRow = e.RowIndex;
+
+
+            string msg = String.Format("Row: {0}, Column: {1}",
+            dtg_resultado.CurrentRow.Index, indiceRow); 
+            //dtg_resultado.CurrentCell.ColumnIndex);
+            MessageBox.Show(msg, "Current Cell");
+
+
 
         }
+
+ 
     }
 }

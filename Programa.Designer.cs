@@ -125,6 +125,7 @@
             // cmb_setor
             // 
             cmb_setor.FormattingEnabled = true;
+            cmb_setor.Items.AddRange(new object[] { resources.GetString("cmb_setor.Items"), resources.GetString("cmb_setor.Items1"), resources.GetString("cmb_setor.Items2"), resources.GetString("cmb_setor.Items3"), resources.GetString("cmb_setor.Items4"), resources.GetString("cmb_setor.Items5"), resources.GetString("cmb_setor.Items6"), resources.GetString("cmb_setor.Items7"), resources.GetString("cmb_setor.Items8") });
             resources.ApplyResources(cmb_setor, "cmb_setor");
             cmb_setor.Name = "cmb_setor";
             cmb_setor.SelectedIndexChanged += cmb_setor_SelectedIndexChanged;

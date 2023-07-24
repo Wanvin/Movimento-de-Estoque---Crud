@@ -422,6 +422,33 @@
   <data name="&gt;&gt;lbl_setor.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
+  <data name="cmb_setor.Items" xml:space="preserve">
+    <value>Comercial</value>
+  </data>
+  <data name="cmb_setor.Items1" xml:space="preserve">
+    <value>Depósito</value>
+  </data>
+  <data name="cmb_setor.Items2" xml:space="preserve">
+    <value>Desenvolvimento</value>
+  </data>
+  <data name="cmb_setor.Items3" xml:space="preserve">
+    <value>Financeiro</value>
+  </data>
+  <data name="cmb_setor.Items4" xml:space="preserve">
+    <value>Implantação</value>
+  </data>
+  <data name="cmb_setor.Items5" xml:space="preserve">
+    <value>Recepção</value>
+  </data>
+  <data name="cmb_setor.Items6" xml:space="preserve">
+    <value>RH</value>
+  </data>
+  <data name="cmb_setor.Items7" xml:space="preserve">
+    <value>Suporte Final</value>
+  </data>
+  <data name="cmb_setor.Items8" xml:space="preserve">
+    <value>Suporte Parceiros</value>
+  </data>
   <data name="cmb_setor.Location" type="System.Drawing.Point, System.Drawing">
     <value>332, 78</value>
   </data>
