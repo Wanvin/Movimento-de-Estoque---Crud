@@ -14,18 +14,24 @@ namespace ProjetoHistorico2
 
     public class Historico
     {
-        public string mensagem = "insert";
-        public bool Inserir(Guid ide, Guid equipamento_ide, String funcionario, DateOnly data_movimento,
-                DateOnly data_alteracao, String setor, int status, bool devolver, bool devolvido)
+ 
+        public bool Inserir(Guid ide, Guid equipamento_ide, String funcionario, DateTime data_movimento,
+              DateTime data_alteracao, String setor, int status, bool devolver, bool devolvido)
+
         {
 
-          
+
+
             Conexao conexao = new Conexao();
             SqlCommand cmd = new SqlCommand();
+            status = 0;
+
+
+
 
 
             // Comando Sql (insert, update, delete) -- SqlCommand
-            cmd.CommandText = "inset into Historico(ide, equipamento_ide, funcionario, data_movimento, data_alteracao, setor, status, devolver, devolvido) " +
+            cmd.CommandText = "insert into Historico(ide, equipamento_ide, funcionario, data_movimento, data_alteracao, setor, status, devolver, devolvido) " +
                 "values(@ide, @equipamento_ide, @funcionario, @data_movimento, @data_alteracao, @setor, @status, @devolver, @devolvido)";
             // Parametros
             cmd.Parameters.AddWithValue("@ide", ide);
@@ -48,6 +54,7 @@ namespace ProjetoHistorico2
                 // Desconectar Bd
                 conexao.desconectar();
                 // Mostrar mensagem de erro ou sucesso
+
                 return true;
 
 
@@ -106,6 +113,40 @@ namespace ProjetoHistorico2
 
         }
 
+
+        public Guid SelectIde(int codigo)
+        {
+            Conexao conexao = new Conexao();
+            SqlCommand cmd = new SqlCommand();
+
+            // Comando Sql para selecionar o ID do equipamento com base no código
+            cmd.CommandText = "Select e.Ide from Equipamento e where e.Codigo = @codigo";
+
+            // Parametros
+            cmd.Parameters.AddWithValue("@codigo", codigo);
+
+            
+            try
+            {
+                cmd.Connection = conexao.conectar();
+                // Executar comando Sql e pegar resultado (ID do equipamento)
+                var resultado = cmd.ExecuteScalar();
+
+                // Verificar se o resultado não é nulo e se pode ser convertido para Guid
+                if (resultado != null && resultado != DBNull.Value && Guid.TryParse(resultado.ToString(), out Guid equipamentoIde))
+                {
+                    
+                    conexao.desconectar();
+                    return equipamentoIde;
+                }
+            }
+            catch (Exception)
+            {
+               
+            }
+
+            return Guid.Empty;
+        }
 
     }
     

@@ -1,5 +1,6 @@
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using TarefaTeste;
 
@@ -33,11 +34,13 @@ namespace ProjetoHistorico2
         public void btn_pesquisar_Click(object sender, EventArgs e)
         {
 
-
+            dtg_resultado.DataSource = null;
 
 
             Historico historico = new Historico();
             DataTable resultado = historico.Select(int.Parse(txb_cod_digitado.Text));
+            Guid equipamentoide = historico.SelectIde(int.Parse(txb_cod_digitado.Text));
+            txb_equipamento_ide.Text = equipamentoide.ToString();
 
             if (resultado != null && resultado.Rows.Count > 0)
             {
@@ -45,11 +48,13 @@ namespace ProjetoHistorico2
                 // Por exemplo, pode mostrar as informações em um DataGridView:
                 dtg_resultado.DataSource = resultado;
 
+
             }
             else
             {
                 // Caso não encontre nenhum resultado, mostre uma mensagem de aviso ao usuário.
-                MessageBox.Show("Produto sem historico!");
+
+                MessageBox.Show("Produto sem historico ou inexistente!");
             }
 
         }
@@ -78,9 +83,44 @@ namespace ProjetoHistorico2
         {
 
 
+            // Convertendo Date_Time_Picker em DateOnly
+            DateTime dataMovimento = dtp_movimento.Value;
 
+            DateTime dataAlteracao = dtp_movimento.Value;
+
+
+            //Instancia do Historico
             Historico historico = new Historico();
-            historico.Inserir(new Guid(), Guid.Parse(txb_equipamento_ide.Text), txb_funcionario, dtp_movimento , dtp_alteracao , cmb_setor, txb_status, ckb_devolver, ckb_devolvido);
+
+
+            // Metodo() Pegar Ide
+            Guid equipamentoide = historico.SelectIde(int.Parse(txb_cod_digitado.Text));
+            txb_equipamento_ide.Text = equipamentoide.ToString();
+            int status = 0;
+
+
+            // Metodo() Insert e o Select Novamente -- após lançar o movimento
+            historico.Inserir(Guid.NewGuid(), Guid.Parse(txb_equipamento_ide.Text), txb_funcionario.Text, dataMovimento, dataAlteracao, cmb_setor.Text, status, ckb_devolver.Checked, ckb_devolvido.Checked);
+            DataTable resultado = historico.Select(int.Parse(txb_cod_digitado.Text));
+
+
+
+            try
+            {
+                // Re - exebindo a busca após efetivar um movimento
+                dtg_resultado.DataSource = resultado;
+                MessageBox.Show("Movimento Efetivado!");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Falha ao efetivar movimento");
+
+            }
+            return;
+
+
+
 
         }
 
@@ -116,7 +156,7 @@ namespace ProjetoHistorico2
 
         public void txb_status_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void dtp_movimento_ValueChanged(object sender, EventArgs e)
@@ -126,6 +166,21 @@ namespace ProjetoHistorico2
 
         private void dtp_alteracao_ValueChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void dtg_resultado_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            
+
+           
+        }
+
+        public void EventHandler (Action<object, DataGridViewCellEventArgs> dtg_resultado_CellContentClick_1, object sender, EventArgs eventArgs, DataGridViewCellEventArgs e)
+        {
+
+            System.Text.StringBuilder messageBoxCS = new System.Text.StringBuilder();
+            messageBoxCS.AppendFormat("{0} = {1}", "ColumnIndex", e.RowIndex);
 
         }
     }

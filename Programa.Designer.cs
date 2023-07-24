@@ -32,7 +32,6 @@
             lbl_titulo = new Label();
             lbl_instru_pesquisa = new Label();
             txb_cod_digitado = new TextBox();
-            dtg_resultado = new DataGridView();
             btn_pesquisar = new Button();
             label1 = new Label();
             lbl_equipamento_ide = new Label();
@@ -48,10 +47,9 @@
             ckb_devolvido = new CheckBox();
             lbl_devolvido = new Label();
             btn_efetivar_movimento = new Button();
-            lbl_status = new Label();
-            txb_status = new TextBox();
             dtp_movimento = new DateTimePicker();
             dtp_alteracao = new DateTimePicker();
+            dtg_resultado = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dtg_resultado).BeginInit();
             SuspendLayout();
             // 
@@ -72,16 +70,6 @@
             resources.ApplyResources(txb_cod_digitado, "txb_cod_digitado");
             txb_cod_digitado.Name = "txb_cod_digitado";
             txb_cod_digitado.TextChanged += txb_cod_digitado_TextChanged;
-            // 
-            // dtg_resultado
-            // 
-            dtg_resultado.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(dtg_resultado, "dtg_resultado");
-            dtg_resultado.Name = "dtg_resultado";
-            dtg_resultado.RowTemplate.Height = 25;
-            dtg_resultado.CellContentClick += dtg_resultado_CellContentClick;
-            dtg_resultado.CellDoubleClick += dtg_resultado_CellContentClick;
-            dtg_resultado.CellEndEdit += dtg_resultado_CellContentClick;
             // 
             // btn_pesquisar
             // 
@@ -172,37 +160,36 @@
             btn_efetivar_movimento.UseVisualStyleBackColor = true;
             btn_efetivar_movimento.Click += btn_efetivar_movimento_Click;
             // 
-            // lbl_status
-            // 
-            resources.ApplyResources(lbl_status, "lbl_status");
-            lbl_status.Name = "lbl_status";
-            // 
-            // txb_status
-            // 
-            resources.ApplyResources(txb_status, "txb_status");
-            txb_status.Name = "txb_status";
-            txb_status.TextChanged += txb_status_TextChanged;
-            // 
             // dtp_movimento
             // 
+            dtp_movimento.Format = DateTimePickerFormat.Short;
             resources.ApplyResources(dtp_movimento, "dtp_movimento");
             dtp_movimento.Name = "dtp_movimento";
             dtp_movimento.ValueChanged += dtp_movimento_ValueChanged;
             // 
             // dtp_alteracao
             // 
+            dtp_alteracao.Format = DateTimePickerFormat.Short;
             resources.ApplyResources(dtp_alteracao, "dtp_alteracao");
             dtp_alteracao.Name = "dtp_alteracao";
             dtp_alteracao.ValueChanged += dtp_alteracao_ValueChanged;
+            // 
+            // dtg_resultado
+            // 
+            dtg_resultado.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(dtg_resultado, "dtg_resultado");
+            dtg_resultado.Name = "dtg_resultado";
+            dtg_resultado.RowTemplate.Height = 25;
+            dtg_resultado.CellContentClick += dtg_resultado_CellContentClick_1;
+            dtg_resultado.CellDoubleClick += dtg_resultado_CellContentClick;
             // 
             // Programa
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(dtg_resultado);
             Controls.Add(dtp_alteracao);
             Controls.Add(dtp_movimento);
-            Controls.Add(txb_status);
-            Controls.Add(lbl_status);
             Controls.Add(btn_efetivar_movimento);
             Controls.Add(ckb_devolvido);
             Controls.Add(lbl_devolvido);
@@ -218,7 +205,6 @@
             Controls.Add(lbl_equipamento_ide);
             Controls.Add(label1);
             Controls.Add(btn_pesquisar);
-            Controls.Add(dtg_resultado);
             Controls.Add(txb_cod_digitado);
             Controls.Add(lbl_instru_pesquisa);
             Controls.Add(lbl_titulo);
@@ -233,7 +219,6 @@
         private Label lbl_titulo;
         private Label lbl_instru_pesquisa;
         private TextBox txb_cod_digitado;
-        private DataGridView dtg_resultado;
         private Button btn_pesquisar;
         private Label label1;
         private Label lbl_equipamento_ide;
@@ -249,9 +234,8 @@
         private CheckBox ckb_devolvido;
         private Label lbl_devolvido;
         private Button btn_efetivar_movimento;
-        private Label lbl_status;
-        private TextBox txb_status;
         private DateTimePicker dtp_movimento;
         private DateTimePicker dtp_alteracao;
+        private DataGridView dtg_resultado;
     }
 }
