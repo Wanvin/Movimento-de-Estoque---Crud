@@ -77,34 +77,47 @@ namespace ProjetoHistorico2
 
         public void btn_efetivar_movimento_Click(object sender, EventArgs e)
         {
-            DateTime dataMovimento = dtp_movimento.Value;
-            DateTime dataAlteracao = DateTime.Now;
 
-            Historico historico = new Historico();
-
-            if (txb_cod_digitado.Text != string.Empty && int.Parse(txb_cod_digitado.Text) != 0)
+            if (txb_funcionario.Text == "")
             {
-                Guid equipamentoide = historico.SelectIde(int.Parse(txb_cod_digitado.Text));
-                txb_equipamento_ide.Text = equipamentoide.ToString();
-
-                int status = 0;
-                historico.Inserir(Guid.NewGuid(), Guid.Parse(txb_equipamento_ide.Text), txb_funcionario.Text, dataMovimento, dataAlteracao, cmb_setor.Text, status, ckb_devolver.Checked, ckb_devolvido.Checked);
-                DataTable resultado = historico.Select(int.Parse(txb_cod_digitado.Text));
-                try
-                {
-                    dtg_resultado.DataSource = resultado;
-                    MessageBox.Show("Movimento Efetivado!");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Falha ao efetivar movimento");
-                }
-                return;
+                MessageBox.Show("Digite o nome do funcionário: ");
+            }
+            else if (cmb_setor.Text == "")
+            {
+                MessageBox.Show("Escolha o setor do funcionário: ");
             }
             else
             {
-                MessageBox.Show("Selecione um produto para efetivar o movimento");
-            } 
+
+                DateTime dataMovimento = dtp_movimento.Value;
+                DateTime dataAlteracao = DateTime.Now;
+
+                Historico historico = new Historico();
+
+                if (txb_cod_digitado.Text != string.Empty && int.Parse(txb_cod_digitado.Text) != 0)
+                {
+                    Guid equipamentoide = historico.SelectIde(int.Parse(txb_cod_digitado.Text));
+                    txb_equipamento_ide.Text = equipamentoide.ToString();
+
+                    int status = 0;
+                    historico.Inserir(Guid.NewGuid(), Guid.Parse(txb_equipamento_ide.Text), txb_funcionario.Text, dataMovimento, dataAlteracao, cmb_setor.Text, status, ckb_devolver.Checked, ckb_devolvido.Checked);
+                    DataTable resultado = historico.Select(int.Parse(txb_cod_digitado.Text));
+                    try
+                    {
+                        dtg_resultado.DataSource = resultado;
+                        MessageBox.Show("Movimento Efetivado!");
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Falha ao efetivar movimento");
+                    }
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um produto para efetivar o movimento");
+                }
+            }
         }
 
         public void txb_equipamento_ide_TextChanged(object sender, EventArgs e)
@@ -186,6 +199,8 @@ namespace ProjetoHistorico2
         private void btn_atualizar_Click(object sender, EventArgs e)
         {
             DateTime dataAlteracao = DateTime.Now;
+
+
             Historico historico = new Historico();
             // Metodo() Pegar Ide
             if (txb_cod_digitado.Text != string.Empty && int.Parse(txb_cod_digitado.Text) != 0)
