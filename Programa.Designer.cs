@@ -60,7 +60,6 @@
             // 
             resources.ApplyResources(lbl_titulo, "lbl_titulo");
             lbl_titulo.Name = "lbl_titulo";
-            lbl_titulo.Click += lbl_titulo_Click;
             // 
             // lbl_instru_pesquisa
             // 
@@ -96,7 +95,6 @@
             // 
             resources.ApplyResources(txb_equipamento_ide, "txb_equipamento_ide");
             txb_equipamento_ide.Name = "txb_equipamento_ide";
-            txb_equipamento_ide.TextChanged += txb_equipamento_ide_TextChanged;
             // 
             // lbl_funcionario
             // 
@@ -108,7 +106,6 @@
             // 
             resources.ApplyResources(txb_funcionario, "txb_funcionario");
             txb_funcionario.Name = "txb_funcionario";
-            txb_funcionario.TextChanged += txb_funcionario_TextChanged;
             // 
             // lbl_setor
             // 

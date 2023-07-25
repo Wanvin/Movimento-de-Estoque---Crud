@@ -16,11 +16,6 @@ namespace ProjetoHistorico2
             InitializeComponent();
         }
 
-        public void lbl_titulo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         public void lbl_instru_pesquisa_Click(object sender, EventArgs e)
         {
 
@@ -59,7 +54,7 @@ namespace ProjetoHistorico2
                 }
                 else
                 {
-                   MessageBox.Show("Produto Inexistente!");
+                    MessageBox.Show("Produto Inexistente!");
                 }
             }
         }
@@ -120,10 +115,6 @@ namespace ProjetoHistorico2
             }
         }
 
-        public void txb_equipamento_ide_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         public void txb_funcionario_TextChanged(object sender, EventArgs e)
         {
@@ -145,17 +136,7 @@ namespace ProjetoHistorico2
 
         }
 
-        public void txb_status_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         public void dtp_movimento_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        public void dtp_alteracao_ValueChanged(object sender, EventArgs e)
         {
 
         }
@@ -270,7 +251,7 @@ namespace ProjetoHistorico2
             dtg_resultado.DataSource = null;
             Historico historico = new Historico();
             DataTable resultadoDevolver = historico.Devolver();
-            
+
             if (resultadoDevolver != null && resultadoDevolver.Rows.Count > 0)
             {
                 dtg_resultado.DataSource = resultadoDevolver;
