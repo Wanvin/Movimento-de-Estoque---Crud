@@ -38,8 +38,6 @@
             txb_equipamento_ide = new TextBox();
             lbl_funcionario = new Label();
             txb_funcionario = new TextBox();
-            lbl_data_movimento = new Label();
-            lbl_alter_data = new Label();
             lbl_setor = new Label();
             cmb_setor = new ComboBox();
             lbl_devolver = new Label();
@@ -48,8 +46,12 @@
             lbl_devolvido = new Label();
             btn_efetivar_movimento = new Button();
             dtp_movimento = new DateTimePicker();
-            dtp_alteracao = new DateTimePicker();
             dtg_resultado = new DataGridView();
+            txb_historico_ide = new TextBox();
+            lbl_historico_ide = new Label();
+            btn_atualizar = new Button();
+            lbl_data_movimento = new Label();
+            btn_apagar = new Button();
             ((System.ComponentModel.ISupportInitialize)dtg_resultado).BeginInit();
             SuspendLayout();
             // 
@@ -107,16 +109,6 @@
             txb_funcionario.Name = "txb_funcionario";
             txb_funcionario.TextChanged += txb_funcionario_TextChanged;
             // 
-            // lbl_data_movimento
-            // 
-            resources.ApplyResources(lbl_data_movimento, "lbl_data_movimento");
-            lbl_data_movimento.Name = "lbl_data_movimento";
-            // 
-            // lbl_alter_data
-            // 
-            resources.ApplyResources(lbl_alter_data, "lbl_alter_data");
-            lbl_alter_data.Name = "lbl_alter_data";
-            // 
             // lbl_setor
             // 
             resources.ApplyResources(lbl_setor, "lbl_setor");
@@ -168,13 +160,6 @@
             dtp_movimento.Name = "dtp_movimento";
             dtp_movimento.ValueChanged += dtp_movimento_ValueChanged;
             // 
-            // dtp_alteracao
-            // 
-            dtp_alteracao.Format = DateTimePickerFormat.Short;
-            resources.ApplyResources(dtp_alteracao, "dtp_alteracao");
-            dtp_alteracao.Name = "dtp_alteracao";
-            dtp_alteracao.ValueChanged += dtp_alteracao_ValueChanged;
-            // 
             // dtg_resultado
             // 
             dtg_resultado.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -184,12 +169,45 @@
             dtg_resultado.CellContentClick += dtg_resultado_CellContentClick_1;
             dtg_resultado.CellDoubleClick += dtg_resultado_CellContentClick;
             // 
+            // txb_historico_ide
+            // 
+            resources.ApplyResources(txb_historico_ide, "txb_historico_ide");
+            txb_historico_ide.Name = "txb_historico_ide";
+            txb_historico_ide.TextChanged += txb_historico_ide_TextChanged;
+            // 
+            // lbl_historico_ide
+            // 
+            resources.ApplyResources(lbl_historico_ide, "lbl_historico_ide");
+            lbl_historico_ide.Name = "lbl_historico_ide";
+            // 
+            // btn_atualizar
+            // 
+            resources.ApplyResources(btn_atualizar, "btn_atualizar");
+            btn_atualizar.Name = "btn_atualizar";
+            btn_atualizar.UseVisualStyleBackColor = true;
+            btn_atualizar.Click += btn_atualizar_Click;
+            // 
+            // lbl_data_movimento
+            // 
+            resources.ApplyResources(lbl_data_movimento, "lbl_data_movimento");
+            lbl_data_movimento.Name = "lbl_data_movimento";
+            // 
+            // btn_apagar
+            // 
+            resources.ApplyResources(btn_apagar, "btn_apagar");
+            btn_apagar.Name = "btn_apagar";
+            btn_apagar.UseVisualStyleBackColor = true;
+            btn_apagar.Click += btn_apagar_Click;
+            // 
             // Programa
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btn_apagar);
+            Controls.Add(btn_atualizar);
+            Controls.Add(lbl_historico_ide);
+            Controls.Add(txb_historico_ide);
             Controls.Add(dtg_resultado);
-            Controls.Add(dtp_alteracao);
             Controls.Add(dtp_movimento);
             Controls.Add(btn_efetivar_movimento);
             Controls.Add(ckb_devolvido);
@@ -198,7 +216,6 @@
             Controls.Add(lbl_devolver);
             Controls.Add(cmb_setor);
             Controls.Add(lbl_setor);
-            Controls.Add(lbl_alter_data);
             Controls.Add(lbl_data_movimento);
             Controls.Add(txb_funcionario);
             Controls.Add(lbl_funcionario);
@@ -210,6 +227,7 @@
             Controls.Add(lbl_instru_pesquisa);
             Controls.Add(lbl_titulo);
             Name = "Programa";
+            Load += Programa_Load;
             ((System.ComponentModel.ISupportInitialize)dtg_resultado).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -226,8 +244,6 @@
         private TextBox txb_equipamento_ide;
         private Label lbl_funcionario;
         private TextBox txb_funcionario;
-        private Label lbl_data_movimento;
-        private Label lbl_alter_data;
         private Label lbl_setor;
         private ComboBox cmb_setor;
         private Label lbl_devolver;
@@ -236,7 +252,11 @@
         private Label lbl_devolvido;
         private Button btn_efetivar_movimento;
         private DateTimePicker dtp_movimento;
-        private DateTimePicker dtp_alteracao;
         private DataGridView dtg_resultado;
+        private TextBox txb_historico_ide;
+        private Label lbl_historico_ide;
+        private Button btn_atualizar;
+        private Label lbl_data_movimento;
+        private Button btn_apagar;
     }
 }

@@ -37,6 +37,13 @@ namespace ProjetoHistorico2
         public void btn_pesquisar_Click(object sender, EventArgs e)
         {
 
+            txb_funcionario.Text = string.Empty;
+            cmb_setor.Text = string.Empty;
+            dtp_movimento.Text = string.Empty;
+            ckb_devolver.Checked = false;
+            ckb_devolvido.Checked = false;
+            txb_historico_ide.Text = string.Empty;
+
             dtg_resultado.DataSource = null;
 
 
@@ -88,7 +95,6 @@ namespace ProjetoHistorico2
 
             // Convertendo Date_Time_Picker em DateOnly
             DateTime dataMovimento = dtp_movimento.Value;
-
             DateTime dataAlteracao = dtp_movimento.Value;
 
 
@@ -173,21 +179,119 @@ namespace ProjetoHistorico2
 
         }
 
+        //string historicoIde;
+
         public void dtg_resultado_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
-            int indiceRow = e.RowIndex;
+            if (e.RowIndex >= 0)
+            {
+                // Obtém a linha selecionada
+                DataGridViewRow row = dtg_resultado.Rows[e.RowIndex];
+
+                // Extrai os valores das células para as TextBoxes
+                /*historicoIde*/
+                txb_historico_ide.Text = row.Cells["ide"].Value?.ToString();
+                txb_equipamento_ide.Text = row.Cells["equipamento_ide"].Value.ToString();
+                txb_funcionario.Text = row.Cells["funcionario"].Value.ToString();
+                dtp_movimento.Text = row.Cells["data_movimento"].Value.ToString();
+                cmb_setor.Text = row.Cells["setor"].Value?.ToString();
+                //ckb_devolver.Text = row.Cells["devolver"].Value?.ToString();
+                //ckb_devolvido.Text = row.Cells["devolvido"].Value?.ToString();
+
+                if (bool.TryParse(row.Cells["devolver"].Value?.ToString(), out bool devolverValue))
+                {
+                    ckb_devolver.Checked = devolverValue;
+                }
+                if (bool.TryParse(row.Cells["devolvido"].Value?.ToString(), out bool devolvidoValue))
+                {
+                    ckb_devolvido.Checked = devolvidoValue;
+                }
 
 
-            string msg = String.Format("Row: {0}, Column: {1}",
-            dtg_resultado.CurrentRow.Index, indiceRow); 
-            //dtg_resultado.CurrentCell.ColumnIndex);
-            MessageBox.Show(msg, "Current Cell");
+
+            }
+
+        }
+
+        private void txb_historico_ide_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Programa_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_atualizar_Click(object sender, EventArgs e)
+        {
+
+            DateTime dataAlteracao = DateTime.Now;
+
+            Historico historico = new Historico();
+
+            // Metodo() Pegar Ide
+            Guid equipamentoide = historico.SelectIde(int.Parse(txb_cod_digitado.Text));
+            txb_equipamento_ide.Text = equipamentoide.ToString();
+
+
+            // Metodo() Insert e o Select Novamente -- após lançar o movimento
+            historico.Update(Guid.Parse(txb_historico_ide.Text), equipamentoide, dataAlteracao, ckb_devolver.Checked, ckb_devolvido.Checked);
+            DataTable resultado = historico.Select(int.Parse(txb_cod_digitado.Text));
+
+
+            try
+            {
+                // Re - exebindo a busca após atualizar o movimento
+                dtg_resultado.DataSource = resultado;
+                MessageBox.Show("Movimento Atualizado!");
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Falha ao atualizar movimento");
+
+            }
+            return;
+
+        }
+
+        private void btn_apagar_Click(object sender, EventArgs e)
+        {
+
+            //DateTime dataAlteracao = DateTime.Now;
+
+            Historico historico = new Historico();
+
+            // Metodo() Pegar Ide
+            Guid equipamentoide = historico.SelectIde(int.Parse(txb_cod_digitado.Text));
+            txb_equipamento_ide.Text = equipamentoide.ToString();
+
+
+            // Metodo() Insert e o Select Novamente -- após lançar o movimento
+            historico.Delete(Guid.Parse(txb_historico_ide.Text));
+            DataTable resultado = historico.Select(int.Parse(txb_cod_digitado.Text));
+
+
+            try
+            {
+                // Re - exebindo a busca após atualizar o movimento
+                dtg_resultado.DataSource = resultado;
+                MessageBox.Show("Movimento Apagado!");
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Erro ao apagar movimento!");
+
+            }
+            return;
 
 
 
         }
-
- 
     }
 }
