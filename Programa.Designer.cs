@@ -52,6 +52,7 @@
             btn_atualizar = new Button();
             lbl_data_movimento = new Label();
             btn_apagar = new Button();
+            btn_exibir_adevolver = new Button();
             ((System.ComponentModel.ISupportInitialize)dtg_resultado).BeginInit();
             SuspendLayout();
             // 
@@ -199,10 +200,18 @@
             btn_apagar.UseVisualStyleBackColor = true;
             btn_apagar.Click += btn_apagar_Click;
             // 
+            // btn_exibir_adevolver
+            // 
+            resources.ApplyResources(btn_exibir_adevolver, "btn_exibir_adevolver");
+            btn_exibir_adevolver.Name = "btn_exibir_adevolver";
+            btn_exibir_adevolver.UseVisualStyleBackColor = true;
+            btn_exibir_adevolver.Click += btn_exibir_adevolver_Click;
+            // 
             // Programa
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btn_exibir_adevolver);
             Controls.Add(btn_apagar);
             Controls.Add(btn_atualizar);
             Controls.Add(lbl_historico_ide);
@@ -258,5 +267,6 @@
         private Button btn_atualizar;
         private Label lbl_data_movimento;
         private Button btn_apagar;
+        private Button btn_exibir_adevolver;
     }
 }

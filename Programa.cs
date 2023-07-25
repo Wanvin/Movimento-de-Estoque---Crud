@@ -53,10 +53,16 @@ namespace ProjetoHistorico2
             }
             else
             {
-                MessageBox.Show("Produto sem historico ou inexistente!");
+                if (txb_equipamento_ide.Text != Guid.Empty.ToString())
+                {
+                    MessageBox.Show("Produto sem historico!");
+                }
+                else
+                {
+                   MessageBox.Show("Produto Inexistente!");
+                }
             }
         }
-
 
         public void dtg_resultado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -75,28 +81,34 @@ namespace ProjetoHistorico2
             DateTime dataAlteracao = DateTime.Now;
 
             Historico historico = new Historico();
-            Guid equipamentoide = historico.SelectIde(int.Parse(txb_cod_digitado.Text));
-            txb_equipamento_ide.Text = equipamentoide.ToString();
-            int status = 0;
-            historico.Inserir(Guid.NewGuid(), Guid.Parse(txb_equipamento_ide.Text), txb_funcionario.Text, dataMovimento, dataAlteracao, cmb_setor.Text, status, ckb_devolver.Checked, ckb_devolvido.Checked);
-            DataTable resultado = historico.Select(int.Parse(txb_cod_digitado.Text));
 
-            try
+            if (txb_cod_digitado.Text != string.Empty && int.Parse(txb_cod_digitado.Text) != 0)
             {
-                dtg_resultado.DataSource = resultado;
-                MessageBox.Show("Movimento Efetivado!");
+                Guid equipamentoide = historico.SelectIde(int.Parse(txb_cod_digitado.Text));
+                txb_equipamento_ide.Text = equipamentoide.ToString();
+
+                int status = 0;
+                historico.Inserir(Guid.NewGuid(), Guid.Parse(txb_equipamento_ide.Text), txb_funcionario.Text, dataMovimento, dataAlteracao, cmb_setor.Text, status, ckb_devolver.Checked, ckb_devolvido.Checked);
+                DataTable resultado = historico.Select(int.Parse(txb_cod_digitado.Text));
+                try
+                {
+                    dtg_resultado.DataSource = resultado;
+                    MessageBox.Show("Movimento Efetivado!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Falha ao efetivar movimento");
+                }
+                return;
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Falha ao efetivar movimento");
-            }
-            return;
+                MessageBox.Show("Selecione um produto para efetivar o movimento");
+            } 
         }
 
         public void txb_equipamento_ide_TextChanged(object sender, EventArgs e)
         {
-
-
 
         }
 
@@ -107,7 +119,6 @@ namespace ProjetoHistorico2
 
         public void cmb_setor_SelectedIndexChanged(object sender, EventArgs e)
         {
-
 
         }
 
@@ -138,7 +149,6 @@ namespace ProjetoHistorico2
 
         public void dtg_resultado_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex >= 0)
             {
                 // Obtém a linha selecionada
@@ -175,26 +185,32 @@ namespace ProjetoHistorico2
 
         private void btn_atualizar_Click(object sender, EventArgs e)
         {
-
             DateTime dataAlteracao = DateTime.Now;
             Historico historico = new Historico();
             // Metodo() Pegar Ide
-            Guid equipamentoide = historico.SelectIde(int.Parse(txb_cod_digitado.Text));
-            txb_equipamento_ide.Text = equipamentoide.ToString();
-            // Metodo() Insert e o Select Novamente -- após lançar o movimento
-            historico.Update(Guid.Parse(txb_historico_ide.Text), equipamentoide, dataAlteracao, ckb_devolver.Checked, ckb_devolvido.Checked);
-            DataTable resultado = historico.Select(int.Parse(txb_cod_digitado.Text));
+            if (txb_cod_digitado.Text != string.Empty && int.Parse(txb_cod_digitado.Text) != 0)
+            {
+                Guid equipamentoide = historico.SelectIde(int.Parse(txb_cod_digitado.Text));
+                txb_equipamento_ide.Text = equipamentoide.ToString();
+                // Metodo() Insert e o Select Novamente -- após lançar o movimento
+                historico.Update(Guid.Parse(txb_historico_ide.Text), equipamentoide, dataAlteracao, ckb_devolver.Checked, ckb_devolvido.Checked);
+                DataTable resultado = historico.Select(int.Parse(txb_cod_digitado.Text));
 
-            try
-            {
-                dtg_resultado.DataSource = resultado;
-                MessageBox.Show("Movimento Atualizado!");
+                try
+                {
+                    dtg_resultado.DataSource = resultado;
+                    MessageBox.Show("Movimento Atualizado!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Falha ao atualizar movimento");
+                }
+                return;
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Falha ao atualizar movimento");
+                MessageBox.Show("Selecione um movimento para atualizar!");
             }
-            return;
         }
 
         private void btn_apagar_Click(object sender, EventArgs e)
@@ -202,23 +218,52 @@ namespace ProjetoHistorico2
             //DateTime dataAlteracao = DateTime.Now;
             Historico historico = new Historico();
             // Metodo() Pegar Ide
-            Guid equipamentoide = historico.SelectIde(int.Parse(txb_cod_digitado.Text));
-            txb_equipamento_ide.Text = equipamentoide.ToString();
-            // Metodo() Insert e o Select Novamente -- após lançar o movimento
-            historico.Delete(Guid.Parse(txb_historico_ide.Text));
-            DataTable resultado = historico.Select(int.Parse(txb_cod_digitado.Text));
-
-            try
+            if (txb_cod_digitado.Text != string.Empty && int.Parse(txb_cod_digitado.Text) != 0)
             {
-                dtg_resultado.DataSource = resultado;
-                MessageBox.Show("Movimento Apagado!");
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Erro ao apagar movimento!");
-            }
-            return;
+                Guid equipamentoide = historico.SelectIde(int.Parse(txb_cod_digitado.Text));
+                txb_equipamento_ide.Text = equipamentoide.ToString();
+                // Metodo() Insert e o Select Novamente -- após lançar o movimento
+                historico.Delete(Guid.Parse(txb_historico_ide.Text));
+                DataTable resultado = historico.Select(int.Parse(txb_cod_digitado.Text));
 
+                try
+                {
+                    dtg_resultado.DataSource = resultado;
+                    MessageBox.Show("Movimento Apagado!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao apagar movimento!");
+                }
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Nenhum movimento Selecionado");
+            }
+        }
+
+        private void btn_exibir_adevolver_Click(object sender, EventArgs e)
+        {
+            //Limpar campos após uma nova busca
+            txb_funcionario.Text = string.Empty;
+            cmb_setor.Text = string.Empty;
+            dtp_movimento.Text = string.Empty;
+            ckb_devolver.Checked = false;
+            ckb_devolvido.Checked = false;
+            txb_historico_ide.Text = string.Empty;
+            dtg_resultado.DataSource = null;
+            Historico historico = new Historico();
+            DataTable resultadoDevolver = historico.Devolver();
+            
+            if (resultadoDevolver != null && resultadoDevolver.Rows.Count > 0)
+            {
+                dtg_resultado.DataSource = resultadoDevolver;
+            }
+            else
+            {
+                MessageBox.Show("Não existe produtos a serem devolvidos!");
+            }
         }
     }
 }

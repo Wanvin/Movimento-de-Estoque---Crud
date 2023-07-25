@@ -161,6 +161,33 @@ namespace ProjetoHistorico2
             return false;
 
         }
+
+        public DataTable Devolver()
+        {
+
+            Conexao conexao = new Conexao();
+            SqlCommand cmd = new SqlCommand();
+            SqlDataAdapter sqa = new SqlDataAdapter(cmd);
+
+            // Comando Sql
+            cmd.CommandText = "Select h.* from Historico h where h.Devolver =1 and Devolvido = 0 and h.Status != -1";
+            // Parametros
+
+            try
+            {
+                cmd.Connection = conexao.conectar();
+                DataTable Adevolver = new DataTable();
+                sqa.Fill(Adevolver);
+                conexao.desconectar();
+                return Adevolver;
+            }
+            catch (Exception)
+            {
+
+            }
+            return null;
+
+        }
     }
 }
 

@@ -126,7 +126,7 @@
     <value>Segoe UI, 12pt</value>
   </data>
   <data name="lbl_titulo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>291, 163</value>
+    <value>291, 150</value>
   </data>
   <data name="lbl_titulo.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 21</value>
@@ -147,7 +147,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_titulo.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="lbl_instru_pesquisa.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -174,7 +174,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_instru_pesquisa.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="txb_cod_digitado.Location" type="System.Drawing.Point, System.Drawing">
     <value>166, 21</value>
@@ -195,7 +195,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txb_cod_digitado.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="btn_pesquisar.Location" type="System.Drawing.Point, System.Drawing">
     <value>246, 21</value>
@@ -219,7 +219,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_pesquisar.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -243,7 +243,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="lbl_equipamento_ide.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -270,7 +270,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_equipamento_ide.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="txb_equipamento_ide.Location" type="System.Drawing.Point, System.Drawing">
     <value>114, 54</value>
@@ -291,7 +291,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txb_equipamento_ide.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="lbl_funcionario.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -318,7 +318,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_funcionario.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="txb_funcionario.Location" type="System.Drawing.Point, System.Drawing">
     <value>87, 88</value>
@@ -339,7 +339,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txb_funcionario.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="lbl_setor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -366,7 +366,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_setor.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="cmb_setor.Items" xml:space="preserve">
     <value>Comercial</value>
@@ -414,7 +414,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cmb_setor.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="lbl_devolver.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -441,7 +441,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_devolver.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="ckb_devolver.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -465,7 +465,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ckb_devolver.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="ckb_devolvido.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -489,7 +489,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ckb_devolvido.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="lbl_devolvido.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -516,7 +516,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_devolvido.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="btn_efetivar_movimento.Location" type="System.Drawing.Point, System.Drawing">
     <value>587, 54</value>
@@ -540,7 +540,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_efetivar_movimento.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="dtp_movimento.Location" type="System.Drawing.Point, System.Drawing">
     <value>476, 54</value>
@@ -561,10 +561,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtp_movimento.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="dtg_resultado.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 187</value>
+    <value>12, 174</value>
   </data>
   <data name="dtg_resultado.Size" type="System.Drawing.Size, System.Drawing">
     <value>695, 199</value>
@@ -582,7 +582,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dtg_resultado.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="txb_historico_ide.Location" type="System.Drawing.Point, System.Drawing">
     <value>95, 119</value>
@@ -603,7 +603,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txb_historico_ide.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="lbl_historico_ide.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -630,7 +630,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_historico_ide.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btn_atualizar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -658,7 +658,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_atualizar.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="lbl_data_movimento.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -688,7 +688,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_data_movimento.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="btn_apagar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -715,6 +715,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_apagar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btn_exibir_adevolver.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt</value>
+  </data>
+  <data name="btn_exibir_adevolver.Location" type="System.Drawing.Point, System.Drawing">
+    <value>549, 379</value>
+  </data>
+  <data name="btn_exibir_adevolver.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 23</value>
+  </data>
+  <data name="btn_exibir_adevolver.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="btn_exibir_adevolver.Text" xml:space="preserve">
+    <value>Exibir todos não devolvidos</value>
+  </data>
+  <data name="&gt;&gt;btn_exibir_adevolver.Name" xml:space="preserve">
+    <value>btn_exibir_adevolver</value>
+  </data>
+  <data name="&gt;&gt;btn_exibir_adevolver.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_exibir_adevolver.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_exibir_adevolver.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -724,7 +751,7 @@
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>715, 395</value>
+    <value>715, 404</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Historico de Movimento</value>
